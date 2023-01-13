@@ -140,4 +140,6 @@ if ans**2 == x:
         ans = str(ans) + "i"
    print("Square root of", x, "is", ans)
 else:
+    if neg_flag:
+        x *= -1 
     print(x, "is not a perfect square")

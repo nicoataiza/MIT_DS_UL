@@ -63,10 +63,21 @@
 ## twice and flip the table any more times than that. 
 ## Hint: use a counter
 ####################
-#n = input("You are in the Lost Forest\n****************\n****************\n :)\n****************\n****************\nGo left or right? ")
-#while n == "right" or n == "Right":
-#    n = input("You are in the Lost Forest\n****************\n******       ***\n  (╯°□°）╯︵ ┻━┻\n****************\n****************\nGo left or right? ")
-#print("\nYou got out of the Lost Forest!\n\o/")
+ctr = 0
+n = input("You are in the Lost Forest\n****************\n****************\n :)\n****************\n****************\nGo left or right? ")
+while (n.lower() not in ["left"]):
+   ctr += 1
+   if n.lower() not in ["left","right"]:
+       ctr -=1
+       n = input("?\nGo left or right? ")
+   elif ctr == 1:
+       n = input("You are in the Lost Forest\n****************\n****************\n :)\n****************\n****************\nGo left or right? ")
+   elif ctr == 2: 
+       n = input("You are in the Lost Forest\n****************\n****************\n :(\n****************\n****************\nGo left or right? ")
+   elif ctr > 2:
+       n = input("You are in the Lost Forest\n****************\n******       ***\n  (╯°□°）╯︵ ┻━┻\n****************\n****************\nGo left or right? ")
+ctr = 0
+print("\nYou got out of the Lost Forest!\n\o/")
 
 
 
@@ -126,20 +137,20 @@
 ## imaginary perfect sqrts if given a negative num.
 ####################
 
-ans = 0
-neg_flag = False
-x = int(input("Enter an integer: "))
-if x < 0:
-   neg_flag = True
-   x *= -1
-while ans**2 < x:
-   ans = ans + 1
-if ans**2 == x:
-   if neg_flag:
-        x *= -1 
-        ans = str(ans) + "i"
-   print("Square root of", x, "is", ans)
-else:
-    if neg_flag:
-        x *= -1 
-    print(x, "is not a perfect square")
+# ans = 0
+# neg_flag = False
+# x = int(input("Enter an integer: "))
+# if x < 0:
+#    neg_flag = True
+#    x *= -1
+# while ans**2 < x:
+#    ans = ans + 1
+# if ans**2 == x:
+#    if neg_flag:
+#         x *= -1 
+#         ans = str(ans) + "i"
+#    print("Square root of", x, "is", ans)
+# else:
+#     if neg_flag:
+#         x *= -1 
+#     print(x, "is not a perfect square")

@@ -390,10 +390,6 @@ def play_game(word_list):
         i += 1
     print(f"Total score over all hands: {total}")
     return total
-    
-    
-
-
 #
 # Build data structures used for entire session and play game
 # Do not remove the "if __name__ == '__main__':" line - this code is executed

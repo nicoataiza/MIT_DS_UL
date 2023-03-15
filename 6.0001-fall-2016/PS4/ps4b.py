@@ -230,8 +230,8 @@ class CiphertextMessage(Message):
             current_test = self.apply_shift(num)
             valid_words = [1 for word in current_test.split(" ") if word in self.valid_words]
             if sum(valid_words) > best:
-                print(current_test)
                 output = (num,current_test)
+                best = sum(valid_words)
         return output
 
 if __name__ == '__main__':

@@ -4,6 +4,7 @@
 # Time Spent: x:xx
 
 import string
+import os 
 
 ### HELPER CODE ###
 def load_words(file_name):
@@ -50,14 +51,14 @@ def get_story_string():
     """
     Returns: a story in encrypted text.
     """
-    f = open(r"C:\Users\christian.ataiza\Desktop\MIT\MIT_DS_UL\6.0001-fall-2016\PS4\story.txt", "r")
+    f = open(r"D:\MIT DS\MIT_DS_UL\6.0001-fall-2016\PS4\story.txt", "r")
     story = str(f.read())
     f.close()
     return story
 
 ### END HELPER CODE ###
 
-WORDLIST_FILENAME = r'C:\Users\christian.ataiza\Desktop\MIT\MIT_DS_UL\6.0001-fall-2016\PS4\words.txt'
+WORDLIST_FILENAME = r'D:\MIT DS\MIT_DS_UL\6.0001-fall-2016\PS4\words.txt'
 
 class Message(object):
     def __init__(self, text):
@@ -246,7 +247,15 @@ if __name__ == '__main__':
    print('Actual Output:', ciphertext.decrypt_message())
 
     # #TODO: WRITE YOUR TEST CASES HERE
+   plaintext = PlaintextMessage('Good-bye to a world', 10)
+   print('Expected Output: Qyyn-lio dy k gybvn')
+   print('Actual Output:', plaintext.get_message_text_encrypted())
 
+   #Example test case (CiphertextMessage)
+   ciphertext = CiphertextMessage('Qyyn-lio dy k gybvn')
+   print('Expected Output:', (16, 'Good-bye to a world'))
+   print('Actual Output:', ciphertext.decrypt_message())
+    
     # #TODO: best shift value and unencrypted story 
     
     # pass #delete this line and replace with your code here

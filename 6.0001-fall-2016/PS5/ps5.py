@@ -28,6 +28,7 @@ def process(url):
     """
     feed = feedparser.parse(url)
     entries = feed.entries
+    print(feed)
     ret = []
     for entry in entries:
         guid = entry.guid
@@ -39,8 +40,8 @@ def process(url):
         try:
             pubdate = datetime.strptime(pubdate, "%a, %d %b %Y %H:%M:%S %Z")
             pubdate.replace(tzinfo=pytz.timezone("GMT"))
-          #  pubdate = pubdate.astimezone(pytz.timezone('EST'))
-          #  pubdate.replace(tzinfo=None)
+            pubdate = pubdate.astimezone(pytz.timezone('EST'))
+            pubdate.replace(tzinfo=None)
         except ValueError:
             pubdate = datetime.strptime(pubdate, "%a, %d %b %Y %H:%M:%S %z")
 
@@ -317,17 +318,12 @@ def main_thread(master):
             stories = process("http://news.google.com/news?output=rss")
 
             # Get stories from Yahoo's Top Stories RSS news feed
-            stories.extend(process("http://news.yahoo.com/rss/topstories"))
-
+            # stories.extend(process("http://news.yahoo.com/rss/topstories"))
             stories = filter_stories(stories, triggerlist)
 
             list(map(get_cont, stories))
             scrollbar.config(command=cont.yview)
 
-            for story in stories:
-                print(story)    
-                print()
-                print()
             print("Sleeping...")
             time.sleep(SLEEPTIME)
 
